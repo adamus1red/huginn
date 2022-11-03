@@ -77,7 +77,7 @@ jobs:
           - huginn/huginn-single-process
     env:
       DOCKER_IMAGE: ${{ matrix.docker_image }}
-      DOCKERFILE: docker/${{ contains(matrix.docker_image, 'single-process') && 'single-process' || 'multi-process' }}/Dockerfile
+      DOCKERFILE: ./docker/${{ contains(matrix.docker_image, 'single-process') && 'single-process' || 'multi-process' }}/Dockerfile
       DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKER_PASS: ${{ secrets.DOCKERHUB_TOKEN }}
       DOCKER_PLATFORMS: linux/amd64,linux/arm64
